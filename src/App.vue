@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import CanvasWorkflow from "./components/CanvasWorkflow.vue";
+import Navbar from "./components/Navbar.vue";
+</script>
 
 <template>
-  <div class="bg-black">tes</div>
+  <Navbar></Navbar>
+  <CanvasWorkflow></CanvasWorkflow>
 </template>
