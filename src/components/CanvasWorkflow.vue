@@ -7,6 +7,9 @@ const rightPanel = ref(null);
 const isResizing = ref(false);
 let resizeAnimationFrameId = null;
 
+const showModal = ref(false);
+const modalTaskType = ref("");
+const currentParentId = ref(null);
 const zoomLevel = ref(1);
 const offset = ref({ x: 0, y: 0 });
 const isPanning = ref(false);
@@ -32,13 +35,11 @@ const tasks = ref([
 onMounted(async () => {
   try {
     const response = await getWorkflowRifky("rifky");
-    // Misal response.data.tasks = hasil fetch array task dari backend
     const fetchedTasks = response.data.tasks || [];
-    // Susun ulang tasks FE: [Start, ...tasks hasil fetch, Final]
     tasks.value = [
-      { ...tasks.value[0] }, // Start
-      ...fetchedTasks, // Hasil fetch (bisa kosong)
-      { ...tasks.value[tasks.value.length - 1] }, // Final
+      { ...tasks.value[0] },
+      ...fetchedTasks,
+      { ...tasks.value[tasks.value.length - 1] },
     ];
   } catch (err) {
     console.log(err);
@@ -54,10 +55,6 @@ const templateWorkflow = ref({
   outputParameters: {},
   tasks: tasks,
 });
-
-const showModal = ref(false);
-const modalTaskType = ref("");
-const currentParentId = ref(null);
 
 function openModal(parentId) {
   showModal.value = true;
@@ -226,11 +223,9 @@ async function saveWorkflow() {
   };
 
   try {
-    // 1️⃣ Coba update (PUT), HARUS [workflowData]
     await updateItem([workflowData]);
     alert("Workflow berhasil di-update!");
   } catch (err) {
-    // Cek aman response-nya
     if (err.response && err.response.status !== 200) {
       try {
         await createItem([workflowData]);

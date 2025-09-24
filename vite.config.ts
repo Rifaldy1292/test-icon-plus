@@ -14,7 +14,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "http://localhost:8080", // semua request ke /api dialihkan ke BE
+      "/api": "http://localhost:8080",
     },
   },
 });

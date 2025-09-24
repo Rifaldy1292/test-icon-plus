@@ -1,33 +1,32 @@
-# test-icon-plus
+# Workflow Rifky Web
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplikasi web sederhana untuk **menampilkan** dan **mengedit** workflow dengan nama **`rifky`**.  
+Dibuat menggunakan **Vue 3 + Vite**.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## ✨ Fitur Utama
 
-## Type Support for `.vue` Imports in TS
+- **Read Workflow**  
+  Menampilkan seluruh task dari workflow bernama **`rifky`**, dengan tampilan **card** yang rapi dan responsif.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Edit Workflow**  
+  Mengubah detail workflow dengan identitas yang sama yaitu **`rifky`**.  
+  **Catatan:** Saat mengubah, pastikan **nama action berbeda**, karena default nama masih sama.
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🚀 Cara Menjalankan
 
-## Project Setup
+1. Install dependencies  
+   npm install
+2. pastikan url mengarah ke backend /vite.config.ts
 
-```sh
-npm install
-```
+   proxy: {
+   "/api": "http://localhost:8080",
+   },
 
-### Compile and Hot-Reload for Development
+3. Jalankan development server  
+   npm run dev
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+4. Aplikasi akan berjalan di http://localhost:5173 (atau port lain sesuai konfigurasi Vite).
